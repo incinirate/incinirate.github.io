@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {% include head.html %}
+
+  <body>
+
+    <div class="col-left">
+      <div class="float-page">
+        <div class="section-super">Posts&nbsp;<em>/</em></div>
+        <div class="section-title">{{page.title}}</div>
+        <div class="post-tags">
+          {% for tag in page.tags %}
+            <div class="post-tag">{{ tag }}</div>
+          {% endfor %}
+        </div>
+        <div class="section-sub"><a href="/posts">Back to posts&nbsp;<em>/</em></a></div>
+      </div>
+    </div>
+
+    <div class="col-right">
+
+
+      <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+          <div class="nav">
+            {% include icon-posts.html notitle=true %}
+          </div>
+          <div class="nav-flow"></div>
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+              <header class="post-header">
+                <p class="post-meta">
+                  <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                    {% assign date_format = "%b %-d, %Y" %}
+                    {{ page.date | date: date_format }}
+                  </time>
+                </p>
+              </header>
+            
+              <div class="post-content" itemprop="articleBody">
+                {{ content }}
+              </div>
+            
+              {% if page.comments %}
+                {% include disqus_comments.html %}
+              {% endif %}
+            </article>
+        </div>
+      </main>
+
+
+    </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {% include head.html %}
+
+  <body>
+
+    <div class="col-left">
+      <div class="float-page">
+        <div class="section-title">{{page.title}}<em>/</em></div>
+      </div>
+    </div>
+
+    <div class="col-right">
+
+
+      <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+          {{ content }}
+        </div>
+      </main>
+
+
+    </div>
+
+  </body>
+
+</html>

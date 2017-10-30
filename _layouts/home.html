@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {% include head.html %}
+
+  <body>
+    <div class="col-left">
+      <canvas id="floating-canvas"></canvas>
+      <div class="float-content">
+        <div class="name">Bryan Becar</div>
+        <div class="sub">Bored Programmer.</div>
+      </div>
+    </div>
+    <div class="col-right">
+      <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <div class="nav">
+              {% include icon-posts.html %}
+            </div>
+            <div class="home">
+              <div class="about">
+                <h1>Hello</h1>
+                <p>
+                  My name is Bryan, but my friends call me Incin.
+                  I am a software developer with 10 years of experience in most of the major languages.
+                  My current project is a fantasy computer called Riko4. {{ content }}
+                </p>
+              </div>
+            </div>
+        </div>
+      </main>
+    </div>
+
+    <script>{% include dots.js %}</script>
+  </body>
+</html>
+
+
+
