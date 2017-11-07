@@ -10,7 +10,6 @@
   float: left;
 
   background: rgba(44, 45, 51, 0.9);
-  background: linear-gradient(rgba(10, 10, 10, .8), rgba(10, 10, 10, .8)), url(/assets/img/cover.jpg) no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -318,24 +317,76 @@
   }
 }
 
+.icon.icon--home {
+  border: 2px solid #d4d4d4;
+  width: 24px;
+  height: 20px;
+  box-sizing: border-box;
+  position: relative;
+  top: 14px;
+  left: 5px;
+  background-color: #d4d4d4;
+  
+  &::before {
+    content: '';
+    border: 16px solid #d4d4d4;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -30px;
+    left: -6px;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-top: 16px solid transparent;
+  }
+  
+  .inner {
+    width: 24px;
+    height: 20px;
+    box-sizing: border-box;
+    position: relative;  
+    left: -2px;
+    top: -2px;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    transform: scale(0.8, 0.8);
+    
+    &::before {
+      content: '';
+      border: 16px solid #ffffff;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: -30px;
+      left: -4px;
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-top: 16px solid transparent;
+      border-radius: 2px;
+    }
+  }
+}
+
 .nav {
   position: absolute;
   right: 0;
   top: 0;
   height: 60px;
   padding: inherit;
+  display: flex;
 
   a {
     position: relative;
     width: 36px;
     height: 54px;
     display: block;
+    margin-left: 1rem;
 
     .nav-title {
       position: absolute;
       font-size: 12px;
       top: 38px;
-      right: -18px;
+      left: 50%;
       transform: translateX(-50%);
       color: #b6b6b6;
     }
@@ -345,8 +396,11 @@
         color: $primary-color;
       }
   
-      .icon.icon--posts {
-        border-color: $primary-color;      
+      .icon {
+        border-color: $primary-color;
+        &::before {
+          border-bottom-color: $primary-color;
+        }
       }
     }
 
@@ -613,5 +667,9 @@
     @include media-query($on-laptop) {
       @include relative-font-size(1.125);
     }
+  }
+
+  p {
+    text-indent: 2em;
   }
 }
